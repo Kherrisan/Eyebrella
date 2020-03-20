@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+    <!-- Appenders支持配置多个Appender，支持向不同的目标输送日志，本例为配置向控制台输出 -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%style{%d{ABSOLUTE}}{blue} %style{%c{1}.%method}{blue}(%file:%line): %highlight{%msg%n}"/>
+        </Console>
+    </Appenders>
+
+    <!-- Loggers支持配置多个Logger，可引用不同的目标Appender，也可根据业务需求定制特定要求的Appender -->
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="cn.kherrisan" level="debug"/>
+        <Logger name="io" level="error"/>
+        <Logger name="io.netty" level="error"/>
+        <Logger name="com" level="error"/>
+        <Logger name="org" level="error"/>
+    </Loggers>
+</Configuration>
